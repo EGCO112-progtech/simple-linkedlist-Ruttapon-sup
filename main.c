@@ -10,14 +10,17 @@
 #include "node.h"
 
 int main(int argc, const char * argv[]) {
-    int c=5;
-    struct node a,b,*head ;
-    a.value = c;
+    int z=5;
+    struct node a,b,c,*head ;
+    a.value = z;
     a.next=&b;
     head=&a;
+    b.next=&c;
     b.value=head->value+3;
+    head->next->next->value = 11; //b.next->value = 11;
+    head->next->next->next = NULL;
 
-    printf("%d\n", head ->value ); //what value for 5
+    printf("%d\n", head->next->next->value ); //what value for 5
     printf("%d\n", head ->next->value ); //what value for 8
 /*  Exercise I
     1. Add 1 more than at the end
