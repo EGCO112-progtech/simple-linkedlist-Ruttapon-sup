@@ -66,15 +66,56 @@ int main(int argc, const char * argv[]) {
         printf("\n");
     
     
- /*  Exercise V Use malloc to create all nodes, instead of create a struct!!
+ //  Exercise V Use malloc to create all nodes, instead of create a struct!!
          //use a loop to help
-          
-     */
+         head = (NodePtr)malloc(sizeof(struct node)); //(struct node*)malloc sizeof(struct node);
+         tmp = head;
 
-    /*  Exercise VI Free all node !!
-         //use a loop to help
+         tmp->value = 2;
+         printf("%3d", tmp->value);
+/*
+         tmp->next=(NodePtr)malloc(sizeof(struct node));
+         tmp = tmp->next;
+         tmp->value = 5;
+
+         tmp->next=(NodePtr)malloc(sizeof(struct node));
+         tmp = tmp->next;
+         tmp->value = 8;
+
+         tmp->next=(NodePtr)malloc(sizeof(struct node));
+         tmp = tmp->next;
+         tmp->value = 11; 
+*/
+    for(i=2;i<=11;i+=3) {
+        tmp->value = i;
+        printf("%3d", tmp->value);
+        if(i == 11) tmp->next = NULL;
+        else tmp->next=(NodePtr)malloc(sizeof(struct node));
+        tmp = tmp->next;
+         
+    }
           
-     */
+     
+
+    //  Exercise VI Free all node !!
+         //use a loop to help
+    /*tmp = head;
+    head = head->next;
+    free(tmp);
+    tmp = head;
+    head = head->next;
+    free(tmp);
+    tmp = head;
+    head = head->next;
+    free(tmp);*/
+    printf("\n");
+    while(head != NULL) //while(head)
+    {
+    tmp = head;
+    head = head->next;
+    printf("%5d",tmp->value);
+    free(tmp);
+    }
     
     return 0;
 }
