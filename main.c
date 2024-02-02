@@ -97,7 +97,7 @@ int main(int argc, const char * argv[]) {
           
      
 
-    //  Exercise VI Free all node !!
+    //  Exercise VI Free all node !
          //use a loop to help
     /*tmp = head;
     head = head->next;
